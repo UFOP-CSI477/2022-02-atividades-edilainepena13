@@ -52,14 +52,14 @@
   <br /> logo em seguida temos a opção de dar um desconto geral (em todos os produtos daquela venda),
   <br /> ai sim, depois temos o total da compra, e a opção de selecionar a forma de pagamento,
   <br /> se a compra for no dinheiro, deve-se inserir o valor recebido do cliente,
-  <br /> para que o sistema retorne o troco a ser entrege ao mesmo.
-  <br /> E por fim a venda pode ser finalizada ou excluida.
+  <br /> para que o sistema retorne o troco a ser entregue ao mesmo.
+  <br /> E por fim a venda pode ser finalizada ou excluída.
   <br />
   ![image](https://user-images.githubusercontent.com/96508515/215234914-656e371b-3cd4-4a3c-b58f-41db10aa899f.png)
    <br />
    <br /> Página de Relatórios
    <br />
-   <br /> Nesta Pagina podem ser gerados diversos relatórios, que visam fornecer informações úteis para o usuário.
+   <br /> Nesta Página podem ser gerados diversos relatórios, que visam fornecer informações úteis para o usuário.
    <br /> Esses Relatórios podem ser filtrados por tipo de relatório, período e categoria de produtos, 
    <br /> além de poder ser ordenados por valores, datas e quantidade.
    <br />
