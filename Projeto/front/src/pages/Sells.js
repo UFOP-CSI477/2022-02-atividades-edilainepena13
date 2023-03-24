@@ -85,7 +85,9 @@ function Sells() {
     }).filter(k => k);
 
     axios.post(sellsApi, {
-      products: cart,
+      // products: cart,
+      value: cart.reduce((acc, cur) => Number(acc) + Number(cur.price), 0),
+      quantity: cart.length,
       newQuantity,
       paymentType,
     }).then(() => { 
@@ -229,7 +231,8 @@ function Sells() {
               Itens: {cart.length} 
             </h3>
             <h3>
-              Total: R${cart.reduce((acc, cur) => Number(acc) + Number(cur.price), 0)}            </h3>
+              Total: R${cart.reduce((acc, cur) => Number(acc) + Number(cur.price), 0)}
+            </h3>
           </div>
           <div style={{width: '50%', alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
             <Button onClick={() => checkout()}>Pagamentos</Button>

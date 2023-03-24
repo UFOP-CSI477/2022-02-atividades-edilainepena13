@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -38,7 +38,8 @@ connection.connect((err) => {
       id INT NOT NULL AUTO_INCREMENT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       paymentType VARCHAR(32),
-      products JSON,
+      value FLOAT,
+      quantity INT,
       PRIMARY KEY (id)
     )
   `, (err, result) => {
@@ -109,8 +110,8 @@ app.delete('/stock/:id', (req, res) => {
 
 // Create a new sell
 app.post('/sells', (req, res) => {
-  const { products, paymentType, newQuantity } = req.body;
-  const query = `INSERT INTO sells (products, paymentType) VALUES ('${JSON.stringify(products)}', '${paymentType}')`;
+  const { value, quantity, paymentType, newQuantity } = req.body;
+  const query = `INSERT INTO sells (value, quantity, paymentType) VALUES ('${value}', '${quantity}', '${paymentType}')`;
 
   connection.query(query, (err, result) => {
     if (err) throw err;
@@ -143,19 +144,6 @@ app.get('/sells/:id', (req, res) => {
     if (err) throw err;
     console.log(result);
     res.send(result);
-  });
-});
-
-// Update a sell by ID
-app.put('/sells/:id', (req, res) => {
-  const { id } = req.params;
-  const { products } = req.body;
-  const query = `UPDATE sells SET products = '${JSON.stringify(products)}' WHERE id = ${id}`;
-
-  connection.query(query, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send('Sell updated in database');
   });
 });
 
